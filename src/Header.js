@@ -1,37 +1,29 @@
 import React from 'react';
-import './Header.css';
+import './Header.scss';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 
-import logo from './img/sigma.svg';
+// import logo from '../public/img/sigma.svg';
 
 function Header() {
     return (
-        <div className='header'>
-            <img src={logo} className='header__logo' alt='logo' />
-
-            <div className='header__search'>
+        <header className='header'>
+            <title>Sigma Sklep</title>
+            <img src='/img/sigma.svg' className='header__logo' alt='logo' />
+            <nav className='header__search'>
                 <input className='header__searchInput' type='text' />
                 <SearchIcon className='header__searchIcon' />
                 {/* <div className='header__optionLine'>Szukaj</div> */}
-            </div>
-
-            <div className='header__nav'>
-                <div className='header__option'>
-                    <span className='header__optionLine'>Zaloguj się</span>
+            </nav>
+            <nav className='header__nav'>
+                <span className='header__navOption'>Zaloguj się</span>
+                <span className='header__navOption'>Twój Koszyk</span>
+                <div className='header__navBasket'>
+                    <ShoppingBasketIcon className='header__navBasketIcon' />
+                    <span className='header__navOption header__navBasketCounter'>0</span>
                 </div>
-
-                <div className='header__option'>
-                    <span className='header__optionLine'>Twój</span>
-                    <span className='header__optionLine'>Koszyk</span>
-                </div>
-
-                <div className='header__optionBasket'>
-                    <ShoppingBasketIcon className='header__basketIcon' />
-                    <span className='header__optionLine header__basketCount'>0</span>
-                </div>
-            </div>
-        </div>
+            </nav>
+        </header>
     );
 }
 
