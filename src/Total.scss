@@ -1,0 +1,46 @@
+@import './colors';
+
+.subtotal {
+    display: flex;
+    font-size: 1.5rem;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30rem;
+    height: 12rem;
+    padding: 10px;
+    background-color: #f3f3f3;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    line-height: 2rem;
+
+    button {
+        margin-top: 1rem;
+        font: 500 1.4rem Rubik;
+        outline: none;
+        border: 0;
+        min-width: 10rem;
+        // line-height: 2rem;
+        padding: 1rem;
+        // font-size: 1rem;
+        text-align: center;
+        color: #fff;
+        border-radius: 0.2rem;
+        background-color: $lessDarkBlue;
+        background-image: linear-gradient(
+            to top left,
+            rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.2) 30%,
+            rgba(0, 0, 0, 0)
+        );
+        box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.1),
+            inset -2px -2px 3px rgba(0, 0, 0, 0.2);
+
+        &:hover {
+            background-color: $sigmaBlue;
+        }
+        &:active {
+            box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+                inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+        }
+    }
+}

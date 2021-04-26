@@ -1,12 +1,40 @@
 import React from 'react';
 import './ProductWidget.scss';
+import { useStateValue } from './StateProvider';
 // import zdjecie from './img/pr.png';
 
-export default function ProductWidget({ title, desc, time, price, image }) {
-    // const zdjecie = require('./img/product1.png');
+export default function ProductWidget({ id, title, desc, time, price, image }) {
+    const [{ basket }, dispatch] = useStateValue();
+
+    const format = {
+        style: 'currency',
+        currency: 'PLN',
+    };
+    const localization = navigator.language;
+    const formattedPrice = new Intl.NumberFormat(localization, format).format(price);
+
+    const addToBasket = () => {
+        //dispatch the item to data layer
+        dispatch({
+            type: 'ADD_TO_BASKET',
+            item: {
+                id,
+                title,
+                desc,
+                time,
+                price,
+                image,
+            },
+        });
+    };
+
     return (
         <main className='product'>
-            <img src={image} alt='zdjecie produktu' className='product__image' />
+            <img
+                src={`/img/${image}`}
+                alt='zdjecie produktu'
+                className='product__image'
+            />
             <div>
                 <section className='product__info'>
                     <b className='product__title'>{title}</b>
@@ -14,9 +42,12 @@ export default function ProductWidget({ title, desc, time, price, image }) {
                     <div>{time && `Ilość godzin lekcyjnych: ${time}`}</div>
                 </section>
                 <section className='product__buy'>
-                    <div className='product__price'>Cena {price} PLN</div>
+                    <div className='product__price'>Cena: {formattedPrice}</div>
 
-                    <button className='product__button' type='button'>
+                    <button
+                        onClick={addToBasket}
+                        className='product__button'
+                        type='button'>
                         Dodaj do koszyka
                     </button>
                 </section>

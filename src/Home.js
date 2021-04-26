@@ -10,6 +10,7 @@ function Home() {
         return (
             <ProductWidget
                 key={id}
+                id={id}
                 image={image}
                 title={title}
                 desc={desc}
