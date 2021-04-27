@@ -9,7 +9,6 @@ import { useStateValue } from './StateProvider';
 
 function Header() {
     const [{ basket }] = useStateValue();
-    console.log('Header | basket', basket);
 
     return (
         <header className='header'>

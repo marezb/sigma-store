@@ -1,6 +1,7 @@
 import React from 'react';
 import './ProductWidget.scss';
 import { useStateValue } from './StateProvider';
+import { nanoid } from 'nanoid';
 // import zdjecie from './img/pr.png';
 
 export default function ProductWidget({ id, title, desc, time, price, image }) {
@@ -18,6 +19,7 @@ export default function ProductWidget({ id, title, desc, time, price, image }) {
         dispatch({
             type: 'ADD_TO_BASKET',
             item: {
+                uniqueID: nanoid(10),
                 id,
                 title,
                 desc,

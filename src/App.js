@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import Home from './Home';
 import Header from './Header';
-import Checkout from './Checkout';
+import Checkout from './checkout/Checkout';
 
 function App() {
     return (

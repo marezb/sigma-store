@@ -1,0 +1,88 @@
+@import '../colors';
+
+.checkoutProduct {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: $lessDarkBlue;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin: 0.5rem;
+    padding: 1rem;
+    max-width: 80rem;
+    min-width: 60rem;
+    max-height: 40rem;
+    background-color: white;
+    z-index: 1;
+    box-shadow: 0.4rem 0.4rem 0.4rem 0.2rem #b3b3b33d;
+    border-radius: 0.5rem;
+
+    .checkoutProduct__image {
+        max-height: 20rem;
+        max-width: 20rem;
+        object-fit: contain;
+        // margin-bottom: 15px;
+    }
+
+    .checkoutProduct__info {
+        line-height: 2rem;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        text-align: justify;
+
+        .checkoutProduct__title {
+            color: $veryDarkBlue;
+            line-height: 2.5rem;
+            font-weight: 600;
+            font-size: 1.9rem;
+        }
+
+        .checkoutProduct__desc {
+            font-weight: 400;
+            font-size: 1.4rem;
+        }
+    }
+
+    .checkoutProduct__buy {
+        padding: 2rem;
+
+        display: flex;
+        justify-content: space-between;
+
+        .checkoutProduct__price {
+            font-size: 1.4rem;
+        }
+
+        .checkoutProduct__button {
+            font: 500 1.4rem Rubik;
+            outline: none;
+            border: 0;
+            min-width: 10rem;
+            // line-height: 2rem;
+            padding: 1rem;
+            // font-size: 1rem;
+            text-align: center;
+            color: #fff;
+            border-radius: 0.2rem;
+            background-color: rgb(255, 102, 92);
+            background-image: linear-gradient(
+                to top left,
+                rgba(0, 0, 0, 0.1),
+                rgba(0, 0, 0, 0.2) 30%,
+                rgba(0, 0, 0, 0)
+            );
+            box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.1),
+                inset -2px -2px 3px rgba(0, 0, 0, 0.2);
+
+            &:hover {
+                background-color: rgb(255, 45, 30);
+            }
+            &:active {
+                box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+                    inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+            }
+        }
+    }
+}

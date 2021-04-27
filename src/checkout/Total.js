@@ -1,8 +1,8 @@
 //npm i react-currency-format
 import React from 'react';
 import './Total.scss';
-import { useStateValue } from './StateProvider';
-import { getBasketTotal } from './reducer';
+import { useStateValue } from '../StateProvider';
+import { getBasketTotal } from '../reducer';
 import { useHistory } from 'react-router-dom';
 
 function Total() {
