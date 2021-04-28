@@ -2,20 +2,36 @@ import React from 'react';
 import './App.scss';
 import { Route, Switch } from 'react-router-dom';
 
-import Home from './Home';
-import Header from './Header';
-import Checkout from './checkout/Checkout';
+import HomePage from './HomePage.js';
+import HeaderElement from './HeaderElement';
+import CheckoutPage from './checkoutPage/CheckoutPage';
+import LoginPage from './LoginPage';
 
 function App() {
+    const firebaseConfig = {
+        apiKey: process.env.REACT_APP_FIREBASE_apiKey,
+        authDomain: process.env.REACT_APP_FIREBASE_authDomain,
+        projectId: process.env.REACT_APP_FIREBASE_projectId,
+        storageBucket: process.env.REACT_APP_FIREBASE_storageBucket,
+        messagingSenderId: process.env.REACT_APP_FIREBASE_messagingSenderId,
+        appId: process.env.REACT_APP_FIREBASE_appId,
+        measurementId: process.env.REACT_APP_FIREBASE_measurementId,
+    };
+    console.log('firebaseConfig', firebaseConfig);
+
     return (
         <div className='App'>
-            <Header></Header>
             <Switch>
                 <Route exact path='/'>
-                    <Home></Home>
+                    <HeaderElement />
+                    <HomePage />
+                </Route>
+                <Route exact path='/login'>
+                    <LoginPage />
                 </Route>
                 <Route exact path='/checkout'>
-                    <Checkout></Checkout>
+                    <HeaderElement />
+                    <CheckoutPage></CheckoutPage>
                 </Route>
             </Switch>
         </div>

@@ -1,0 +1,96 @@
+@import './colors';
+.login {
+    background-color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login__logo {
+    margin: 2rem 2rem 2rem 2rem;
+    width: 20rem;
+    object-fit: contain;
+}
+
+.login__container {
+    width: 30rem;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    border: 1px solid $darkerBlue;
+    padding: 2rem;
+    color: $darkestBlue;
+
+    h1 {
+        font-size: 2.6rem;
+        font-weight: 500;
+        margin-bottom: 2rem;
+    }
+
+    h3 {
+        margin-bottom: 0.5rem;
+    }
+    h4 {
+        font-size: 1.3rem;
+        font-weight: 400;
+        margin-bottom: 0.5rem;
+        margin-top: 2rem;
+    }
+
+    input {
+        border: 1px solid $darkerBlue;
+
+        height: 3rem;
+        margin-bottom: 1rem;
+        background-color: white;
+        width: 100%;
+        padding-left: 0.4rem;
+    }
+}
+.login__button {
+    width: 100%;
+    font: 500 1.4rem Rubik;
+    outline: none;
+    border: 0;
+    min-width: 10rem;
+    padding: 1rem;
+    margin-bottom: 4rem;
+    text-align: center;
+    color: #fff;
+    border-radius: 0.2rem;
+    background-color: $sigmaDarkerBlue;
+
+    &:hover {
+        background-color: $sigmaBlue;
+    }
+    &:active {
+        box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+            inset 2px 2px 3px $sigmaDarkerBlue;
+    }
+}
+
+.login__registerButton {
+    width: 100%;
+    font: 500 1.4rem Rubik;
+    outline: none;
+    border: 1px;
+    min-width: 10rem;
+    // line-height: 2rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    // font-size: 1rem;
+    text-align: center;
+    color: black;
+    border-radius: 0.2rem;
+    background-color: $grayBlue;
+
+    &:hover {
+        background-color: #c9d7eb;
+    }
+    &:active {
+        box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+            inset 2px 2px 3px $darkerBlue;
+    }
+}

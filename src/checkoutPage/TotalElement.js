@@ -1,11 +1,11 @@
 //npm i react-currency-format
 import React from 'react';
-import './Total.scss';
+import './TotalElement.scss';
 import { useStateValue } from '../StateProvider';
 import { getBasketTotal } from '../reducer';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 
-function Total() {
+function TotalElement() {
     const [{ basket }, dispatch] = useStateValue();
 
     const total = getBasketTotal(basket);
@@ -29,4 +29,4 @@ function Total() {
     );
 }
 
-export default Total;
+export default TotalElement;

@@ -1,16 +1,16 @@
 import React from 'react';
-import './Checkout.scss';
-import Total from './Total';
+import './CheckoutPage.scss';
+import TotalElement from './TotalElement';
 import { useStateValue } from '../StateProvider';
-import CheckoutProductWidget from './CheckoutProductWidget';
+import CheckoutProductElement from './CheckoutProductElement';
 
-function Checkout() {
+function CheckoutPage() {
     const [{ basket }, dispatch] = useStateValue();
 
     const showProducts = basket.map(product => {
         const { uniqueID, id, image, title, desc, time, price } = product;
         return (
-            <CheckoutProductWidget
+            <CheckoutProductElement
                 key={uniqueID}
                 uniqueID={uniqueID}
                 id={id}
@@ -31,10 +31,10 @@ function Checkout() {
                 {/* basket item */}
             </div>
             <div className='checkout__right'>
-                <Total />
+                <TotalElement />
             </div>
         </div>
     );
 }
 
-export default Checkout;
+export default CheckoutPage;

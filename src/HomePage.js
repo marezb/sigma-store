@@ -1,15 +1,16 @@
 import React from 'react';
-import './Home.scss';
+import './HomePage.scss';
 import allProducts from './AllProducts';
-import ProductWidget from './ProductWidget';
+import ProductElement from './ProductElement';
+import { nanoid } from 'nanoid';
 
-function Home() {
+function HomePage() {
     const showProducts = allProducts.map(product => {
         const { id, image, title, desc, time, price } = product;
 
         return (
-            <ProductWidget
-                key={id}
+            <ProductElement
+                key={nanoid(4)}
                 id={id}
                 image={image}
                 title={title}
@@ -22,4 +23,4 @@ function Home() {
 
     return <section className='home'>{showProducts}</section>;
 }
-export default Home;
+export default HomePage;

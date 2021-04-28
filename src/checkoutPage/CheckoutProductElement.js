@@ -1,11 +1,18 @@
 import React from 'react';
-import './CheckoutProductWidget.scss';
+import './CheckoutProductElement.scss';
 import { useStateValue } from '../StateProvider';
 
-export default function ProductWidget({ uniqueID, id, title, desc, time, price, image }) {
+export default function CheckoutProductElement({
+    uniqueID,
+    id,
+    title,
+    desc,
+    time,
+    price,
+    image,
+}) {
     const [{ basket }, dispatch] = useStateValue();
 
-    console.log('ProductWidget | uniqueID', uniqueID);
     const format = {
         style: 'currency',
         currency: 'PLN',
@@ -14,7 +21,6 @@ export default function ProductWidget({ uniqueID, id, title, desc, time, price, 
     const formattedPrice = new Intl.NumberFormat(localization, format).format(price);
 
     const removeFromBasket = () => {
-        console.log('removeFromBasket uniqueID', uniqueID);
         //dispatch the item to data layer
         dispatch({
             type: 'REMOVE_FROM_BASKET',

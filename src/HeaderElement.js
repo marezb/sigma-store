@@ -1,5 +1,5 @@
 import React from 'react';
-import './Header.scss';
+import './HeaderElement.scss';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import { Link } from 'react-router-dom';
@@ -7,7 +7,7 @@ import { useStateValue } from './StateProvider';
 
 // import logo from '../public/img/sigma.svg';
 
-function Header() {
+function HeaderElement() {
     const [{ basket }] = useStateValue();
 
     return (
@@ -21,13 +21,18 @@ function Header() {
                 {/* <div className='header__optionLine'>Szukaj</div> */}
             </nav>
             <nav className='header__nav'>
-                <span className='header__navOption'>Zaloguj się</span>
-                <span className='header__navOption'>Twój Koszyk</span>
+                <Link
+                    to='login'
+                    style={{ textDecoration: 'none' }}
+                    className='header__navBasket'>
+                    <span className='header__navOption'>Zaloguj się</span>
+                </Link>
                 <div className='header__navBasket'>
                     <Link
                         to='/checkout'
                         style={{ textDecoration: 'none' }}
                         className='header__navBasket'>
+                        <span className='header__navOption'>Twój koszyk</span>
                         <ShoppingBasketIcon className='header__navBasketIcon' />
                         <span className='header__navOption header__navBasketCounter'>
                             {basket?.length}
@@ -39,4 +44,4 @@ function Header() {
     );
 }
 
-export default Header;
+export default HeaderElement;

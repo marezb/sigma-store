@@ -57,31 +57,24 @@
 
         .product__button {
             font: 500 1.4rem Rubik;
+            max-width: 15rem;
+            font: 500 1.4rem Rubik;
             outline: none;
             border: 0;
             min-width: 10rem;
-            // line-height: 2rem;
             padding: 1rem;
-            // font-size: 1rem;
+            margin-bottom: 4rem;
             text-align: center;
             color: #fff;
             border-radius: 0.2rem;
-            background-color: $lessDarkBlue;
-            background-image: linear-gradient(
-                to top left,
-                rgba(0, 0, 0, 0.1),
-                rgba(0, 0, 0, 0.2) 30%,
-                rgba(0, 0, 0, 0)
-            );
-            box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.1),
-                inset -2px -2px 3px rgba(0, 0, 0, 0.2);
+            background-color: $sigmaDarkerBlue;
 
             &:hover {
                 background-color: $sigmaBlue;
             }
             &:active {
                 box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),
-                    inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+                    inset 2px 2px 3px $sigmaDarkerBlue;
             }
         }
     }

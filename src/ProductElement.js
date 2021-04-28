@@ -1,10 +1,18 @@
 import React from 'react';
-import './ProductWidget.scss';
+import './ProductElement.scss';
 import { useStateValue } from './StateProvider';
 import { nanoid } from 'nanoid';
 // import zdjecie from './img/pr.png';
 
-export default function ProductWidget({ id, title, desc, time, price, image }) {
+export default function ProductElement({
+    uniqueID,
+    id,
+    title,
+    desc,
+    time,
+    price,
+    image,
+}) {
     const [{ basket }, dispatch] = useStateValue();
 
     const format = {
