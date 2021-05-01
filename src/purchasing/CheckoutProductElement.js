@@ -10,6 +10,7 @@ export default function CheckoutProductElement({
     time,
     price,
     image,
+    button,
 }) {
     const [{ basket }, dispatch] = useStateValue();
 
@@ -47,12 +48,14 @@ export default function CheckoutProductElement({
                 <section className='checkoutProduct__buy'>
                     <div className='checkoutProduct__price'>Cena: {formattedPrice}</div>
 
-                    <button
-                        onClick={removeFromBasket}
-                        className='checkoutProduct__button'
-                        type='button'>
-                        Usuń z koszyka
-                    </button>
+                    {button && (
+                        <button
+                            onClick={removeFromBasket}
+                            className='checkoutProduct__button'
+                            type='button'>
+                            Usuń z koszyka
+                        </button>
+                    )}
                 </section>
             </div>
         </main>

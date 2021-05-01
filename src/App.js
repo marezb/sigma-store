@@ -1,23 +1,45 @@
-import React from 'react';
-import './App.scss';
-import { Route, Switch } from 'react-router-dom';
+import React, { useEffect } from "react";
+import "./App.scss";
+import { Route, Switch } from "react-router-dom";
 
-import HomePage from './HomePage.js';
-import HeaderElement from './HeaderElement';
-import CheckoutPage from './checkoutPage/CheckoutPage';
-import LoginPage from './LoginPage';
+import HomePage from "./HomePage.js";
+import HeaderElement from "./HeaderElement";
+import CheckoutPage from "./purchasing/CheckoutPage";
+import LoginPage from "./LoginPage";
+import PaymentPage from "./purchasing/PaymentPage";
+
+import { useStateValue } from "./StateProvider";
+import { auth } from "./firebase";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import OrdersPage from "./purchasing/OrdersPage";
+
+const promise = loadStripe(
+    "pk_test_51Ilt8TAuIeD8QfYNUOLdb4w61oXpL4EC3If1K2SXHXeprcJ9HNRsus1Qzkxz36iykc1MGHKzC66iIALPVIdjkcop00CddU1BpX"
+);
 
 function App() {
-    const firebaseConfig = {
-        apiKey: process.env.REACT_APP_FIREBASE_apiKey,
-        authDomain: process.env.REACT_APP_FIREBASE_authDomain,
-        projectId: process.env.REACT_APP_FIREBASE_projectId,
-        storageBucket: process.env.REACT_APP_FIREBASE_storageBucket,
-        messagingSenderId: process.env.REACT_APP_FIREBASE_messagingSenderId,
-        appId: process.env.REACT_APP_FIREBASE_appId,
-        measurementId: process.env.REACT_APP_FIREBASE_measurementId,
-    };
-    console.log('firebaseConfig', firebaseConfig);
+    const [{}, dispatch] = useStateValue();
+
+    useEffect(() => {
+        auth.onAuthStateChanged((authUser) => {
+            console.log("the user is >>>", authUser);
+
+            if (authUser) {
+                dispatch({
+                    type: "SET_USER",
+                    user: authUser,
+                });
+            } else {
+                dispatch({
+                    type: "SET_USER",
+                    user: null,
+                });
+
+                //the user is logged out
+            }
+        });
+    }, []);
 
     return (
         <div className='App'>
@@ -31,7 +53,16 @@ function App() {
                 </Route>
                 <Route exact path='/checkout'>
                     <HeaderElement />
-                    <CheckoutPage></CheckoutPage>
+                    <CheckoutPage />
+                </Route>
+                <Route exact path='/orders'>
+                    <OrdersPage />
+                </Route>
+                <Route exact path='/payment'>
+                    <HeaderElement />
+                    <Elements stripe={promise}>
+                        <PaymentPage />
+                    </Elements>
                 </Route>
             </Switch>
         </div>

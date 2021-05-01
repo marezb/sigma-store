@@ -1,13 +1,13 @@
-import React from 'react';
-import './CheckoutPage.scss';
-import TotalElement from './TotalElement';
-import { useStateValue } from '../StateProvider';
-import CheckoutProductElement from './CheckoutProductElement';
+import React from "react";
+import "./CheckoutPage.scss";
+import TotalElement from "./TotalElement";
+import { useStateValue } from "../StateProvider";
+import CheckoutProductElement from "./CheckoutProductElement";
 
 function CheckoutPage() {
-    const [{ basket }, dispatch] = useStateValue();
+    const [{ basket, user }, dispatch] = useStateValue();
 
-    const showProducts = basket.map(product => {
+    const showProducts = basket.map((product) => {
         const { uniqueID, id, image, title, desc, time, price } = product;
         return (
             <CheckoutProductElement
@@ -19,14 +19,16 @@ function CheckoutPage() {
                 desc={desc}
                 time={time}
                 price={price}
+                button={true}
             />
         );
     });
 
     return (
         <div className='checkout'>
-            <h2 className='checkout__title'>Twój koszyk</h2>
             <div className='checkout__left'>
+                <h2>Witaj, {user?.email}</h2>
+                <h2 className='checkout__title'>Twój koszyk</h2>
                 {showProducts}
                 {/* basket item */}
             </div>

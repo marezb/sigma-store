@@ -3,18 +3,14 @@ import React from 'react';
 import './TotalElement.scss';
 import { useStateValue } from '../StateProvider';
 import { getBasketTotal } from '../reducer';
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { formatPrice } from '../helperFunctions';
 
 function TotalElement() {
+    const history = useHistory();
     const [{ basket }, dispatch] = useStateValue();
 
     const total = getBasketTotal(basket);
-    const format = {
-        style: 'currency',
-        currency: 'PLN',
-    };
-    const localization = navigator.language;
-    const formattedTotal = new Intl.NumberFormat(localization, format).format(total);
 
     return (
         <div className='subtotal'>
@@ -22,9 +18,9 @@ function TotalElement() {
                 Ilość produktów: <strong>{basket.length}</strong>
             </p>
             <p>
-                Suma: <strong>{formattedTotal}</strong>
+                Suma: <strong>{formatPrice(total)}</strong>
             </p>
-            <button>Do kasy</button>
+            <button onClick={e => history.push('/payment')}>Do kasy</button>
         </div>
     );
 }

@@ -11,7 +11,7 @@ function LoginPage() {
     const signIn = e => {
         e.preventDefault();
         auth.signInWithEmailAndPassword(email, password)
-            .then(auth => {
+            .then(resolve => {
                 history.push('/');
             })
             .catch(error => alert(error.message));
@@ -21,9 +21,9 @@ function LoginPage() {
         e.preventDefault();
 
         auth.createUserWithEmailAndPassword(email, password)
-            .then(auth => {
-                console.log(auth);
-                if (auth) {
+            .then(registered => {
+                console.log(registered);
+                if (registered) {
                     history.push('/');
                 }
             })

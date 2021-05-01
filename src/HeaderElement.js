@@ -4,11 +4,17 @@ import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import { Link } from 'react-router-dom';
 import { useStateValue } from './StateProvider';
+import { auth } from './firebase';
 
 // import logo from '../public/img/sigma.svg';
 
 function HeaderElement() {
-    const [{ basket }] = useStateValue();
+    const [{ basket, user }, dispatch] = useStateValue();
+    // console.log('HeaderElement | user', user.email);
+
+    const handleAuthentication = () => {
+        if (user) auth.signOut();
+    };
 
     return (
         <header className='header'>
@@ -21,12 +27,9 @@ function HeaderElement() {
                 {/* <div className='header__optionLine'>Szukaj</div> */}
             </nav>
             <nav className='header__nav'>
-                <Link
-                    to='login'
-                    style={{ textDecoration: 'none' }}
-                    className='header__navBasket'>
-                    <span className='header__navOption'>Zaloguj się</span>
-                </Link>
+                <span className='header__userName'>
+                    {user ? `Witaj: ${user.email} ` : ''}
+                </span>
                 <div className='header__navBasket'>
                     <Link
                         to='/checkout'
@@ -39,6 +42,16 @@ function HeaderElement() {
                         </span>
                     </Link>
                 </div>
+                <Link
+                    to={user ? '/' : '/login'}
+                    style={{ textDecoration: 'none' }}
+                    className='header__navBasket '>
+                    <span
+                        onClick={handleAuthentication}
+                        className='header__navOption  header__login'>
+                        {user ? 'Wyloguj się' : 'Zaloguj się'}
+                    </span>
+                </Link>
             </nav>
         </header>
     );

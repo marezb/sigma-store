@@ -8,81 +8,94 @@
     position: sticky;
     top: 0;
     z-index: 100;
+}
 
-    .header__logo {
-        width: 18rem;
-        object-fit: contain;
-        margin: 2rem 4rem 2rem 1rem;
-        object-fit: contain;
-    }
+.header__logo {
+    width: 18rem;
+    object-fit: contain;
+    margin: 2rem 4rem 2rem 1rem;
+    object-fit: contain;
+}
 
-    .header__search {
-        display: flex;
-        flex: 0.9;
-        align-items: center;
+.header__search {
+    display: flex;
+    flex: 0.9;
+    align-items: center;
 
-        /* outline: none; */
+    /* outline: none; */
 
-        .header__searchInput {
-            font: 500 1.8rem Raleway;
-            color: $lessDarkBlue;
-            /* font: 400 16px; */
-            height: 4rem !important;
-            padding-left: 1rem;
-            border-radius: 0.4rem 0 0 0.4rem;
-            border: solid 1px $lessDarkBlue;
-            width: 100%;
-            outline: none;
-        }
-
-        .header__searchIcon {
-            border-radius: 0 0.4rem 0.4rem 0;
-            padding: 0.8rem;
-            height: 4rem !important;
-            width: 6rem !important;
-            color: white;
-            background-color: $lessDarkBlue;
-        }
-    }
-
-    .header__nav {
-        flex: 0.3;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        padding-right: 3rem;
-        min-width: 30rem;
-        max-width: 30rem;
+    .header__searchInput {
+        font: 500 1.8rem Raleway;
         color: $lessDarkBlue;
+        /* font: 400 16px; */
+        height: 4rem !important;
+        padding-left: 1rem;
+        border-radius: 0.4rem 0 0 0.4rem;
+        border: solid 1px $lessDarkBlue;
+        width: 100%;
+        outline: none;
+    }
 
-        .header__navOption {
-            color: $lessDarkBlue !important;
+    .header__searchIcon {
+        border-radius: 0 0.4rem 0.4rem 0;
+        padding: 0.8rem;
+        height: 4rem !important;
+        width: 6rem !important;
+        color: white;
+        background-color: $lessDarkBlue;
+    }
+}
 
-            margin-left: 1rem;
-            margin-right: 1rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-            padding-left: 1rem;
-        }
+.header__nav {
+    flex: 0.3;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-right: 3rem;
 
-        .header__navBasket {
-            display: flex;
-            align-items: center;
+    color: $lessDarkBlue;
+}
 
-            .header__navBasketIcon {
-                padding: 0.3rem;
-                height: 3.8rem !important;
-                width: 4rem !important;
-                color: $lessDarkBlue !important;
-            }
-        }
+.header__userName {
+    color: $lessDarkBlue !important;
 
-        .header__navBasketCounter {
-            color: $lessDarkBlue !important;
-            font-size: 2rem;
-            margin-left: 0.2rem;
-            margin-right: 1rem;
-            text-decoration: none;
-        }
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding-left: 1rem;
+}
+
+.header__navOption {
+    color: $lessDarkBlue !important;
+
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding-left: 1rem;
+}
+.header__navBasket {
+    display: flex;
+    align-items: center;
+
+    .header__navBasketIcon {
+        padding: 0.3rem;
+        height: 3.8rem !important;
+        width: 4rem !important;
+        color: $lessDarkBlue !important;
+    }
+
+    .header__navBasketCounter {
+        color: $lessDarkBlue !important;
+        font-size: 2rem;
+        margin-left: 0.2rem;
+        margin-right: 1rem;
+        text-decoration: none;
+    }
+
+    .header__login {
+        font-size: 1.4rem;
+        font-weight: 400;
     }
 }
