@@ -1,4 +1,4 @@
-@import '../colors';
+@import "../colors";
 
 .checkoutProduct {
     font-size: 1.3rem;
@@ -8,7 +8,7 @@
     align-items: center;
     justify-content: flex-start;
     flex-direction: row;
-    margin: 0.5rem;
+    margin: 0.3rem;
     padding: 1rem;
     max-width: 80rem;
     min-width: 60rem;
@@ -19,14 +19,14 @@
     border-radius: 0.5rem;
 
     .checkoutProduct__image {
-        max-height: 20rem;
-        max-width: 20rem;
+        max-height: 15rem;
+        max-width: 15rem;
         object-fit: contain;
         // margin-bottom: 15px;
     }
 
     .checkoutProduct__info {
-        line-height: 2rem;
+        line-height: 1.6rem;
         padding: 2rem;
         display: flex;
         flex-direction: column;
@@ -36,17 +36,17 @@
             color: $veryDarkBlue;
             line-height: 2.5rem;
             font-weight: 600;
-            font-size: 1.9rem;
+            font-size: 1.8rem;
         }
 
         .checkoutProduct__desc {
             font-weight: 400;
-            font-size: 1.4rem;
+            font-size: 1.25rem;
         }
     }
 
     .checkoutProduct__buy {
-        padding: 2rem;
+        padding: 1rem 2rem 1rem 2rem;
 
         display: flex;
         justify-content: space-between;
@@ -56,7 +56,7 @@
         }
 
         .checkoutProduct__button {
-            font: 500 1.4rem Rubik;
+            font: 500 1.4rem Inter;
             outline: none;
             border: 0;
             min-width: 10rem;

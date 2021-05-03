@@ -1,0 +1,27 @@
+@import "../colors";
+
+.order {
+    background-color: $grayBlue;
+    font-size: 1.4rem;
+    color: $darkestBlue;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    line-height: 2rem;
+    position: relative;
+    border-radius: 0.5rem;
+    max-width: 84rem;
+    min-width: 64rem;
+}
+.order__info {
+    padding: 1rem;
+}
+.order__details {
+    font-weight: 400;
+    font-size: 1.4;
+}
+
+.order__id {
+    position: absolute;
+    top: 4rem;
+    right: 2rem;
+}

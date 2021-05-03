@@ -1,4 +1,7 @@
+@import "./colors";
+
 .home {
     display: flex;
     flex-wrap: wrap;
+    background-color: $grayBlue ;
 }

@@ -1,10 +1,10 @@
 //npm i react-currency-format
-import React from 'react';
-import './TotalElement.scss';
-import { useStateValue } from '../StateProvider';
-import { getBasketTotal } from '../reducer';
-import { useHistory } from 'react-router-dom';
-import { formatPrice } from '../helperFunctions';
+import React from "react";
+import "./TotalElement.scss";
+import { useStateValue } from "../StateProvider";
+import { getBasketTotal } from "../reducer";
+import { useHistory } from "react-router-dom";
+import { formatPrice } from "../helperFunctions";
 
 function TotalElement() {
     const history = useHistory();
@@ -20,7 +20,7 @@ function TotalElement() {
             <p>
                 Suma: <strong>{formatPrice(total)}</strong>
             </p>
-            <button onClick={e => history.push('/payment')}>Do kasy</button>
+            <button onClick={(e) => history.push("/payment")}>Do kasy</button>
         </div>
     );
 }

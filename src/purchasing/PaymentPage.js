@@ -42,7 +42,7 @@ function PaymentPage() {
     }, [basket]);
 
     console.log("THE SECRET IS >>>", clientSecret);
-    console.log("👱", user);
+    console.log("User data", user);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -55,17 +55,20 @@ function PaymentPage() {
                 },
             })
             .then(({ paymentIntent }) => {
+                console.log(".then | paymentIntent", paymentIntent);
                 // paymentIntent = payment confirmation from stripe
 
-                // db.collection("users")
-                //     .doc(user?.uid)
-                //     .collection("orders")
-                //     .doc(paymentIntent.id)
-                //     .set({
-                //         basket: basket,
-                //         amount: paymentIntent.amount,
-                //         created: paymentIntent.created,
-                //     });
+                //this is no sql database
+                db.collection("users")
+                    .doc(user?.uid)
+                    .collection("orders")
+                    .doc(paymentIntent.id)
+                    .set({
+                        user: user.email,
+                        basket: basket,
+                        amount: paymentIntent.amount,
+                        created: paymentIntent.created,
+                    });
 
                 setSucceeded(true);
                 setError(null);
@@ -76,7 +79,8 @@ function PaymentPage() {
                 });
 
                 history.replace("/orders");
-            });
+            })
+            .catch((error) => console.log(error));
     };
 
     const handleChange = (e) => {

@@ -56,6 +56,7 @@ function App() {
                     <CheckoutPage />
                 </Route>
                 <Route exact path='/orders'>
+                    <HeaderElement />
                     <OrdersPage />
                 </Route>
                 <Route exact path='/payment'>
