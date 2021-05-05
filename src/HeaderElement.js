@@ -8,7 +8,7 @@ import { auth } from "./firebase";
 
 // import logo from '../public/img/sigma.svg';
 
-function HeaderElement() {
+function HeaderElement({ placeholder, handleChange, searchInput }) {
     const [{ basket, user }, dispatch] = useStateValue();
     // console.log('HeaderElement | user', user.email);
 
@@ -21,11 +21,18 @@ function HeaderElement() {
             <Link to='/'>
                 <img src='/img/sigma.svg' className='header__logo' alt='logo' />
             </Link>
-            <nav className='header__search'>
-                <input className='header__searchInput' type='text' />
-                <SearchIcon className='header__searchIcon' />
-                {/* <div className='header__optionLine'>Szukaj</div> */}
-            </nav>
+            {searchInput && (
+                <nav className='header__search'>
+                    <input
+                        className='header__searchInput'
+                        type='search'
+                        placeholder={placeholder}
+                        onChange={handleChange}
+                    />
+                    <SearchIcon className='header__searchIcon' />
+                    {/* <div className='header__optionLine'>Szukaj</div> */}
+                </nav>
+            )}
             <nav className='header__nav'>
                 <span className='header__userName'>
                     {user ? `Witaj: ${user.email} ` : ""}

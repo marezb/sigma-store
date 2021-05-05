@@ -3,6 +3,15 @@
     padding: 2rem 8rem;
     background-color: $blue;
 
+    @media (max-width: 600px) {
+        flex-direction: column;
+
+        max-width: 50rem;
+        min-width: 30rem;
+        max-height: 80rem;
+        padding: 0.1rem;
+    }
+
     h1 {
         margin: 2rem 0;
         color: white;

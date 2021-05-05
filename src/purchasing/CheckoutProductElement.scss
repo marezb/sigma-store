@@ -18,6 +18,16 @@
     box-shadow: 0.4rem 0.4rem 0.4rem 0.2rem #b3b3b33d;
     border-radius: 0.5rem;
 
+    @media (max-width: 600px) {
+        flex-direction: column;
+
+        max-width: 50rem;
+        min-width: 30rem;
+        max-height: 80rem;
+        padding: 0.8rem;
+        margin: 1rem;
+    }
+
     .checkoutProduct__image {
         max-height: 15rem;
         max-width: 15rem;
@@ -66,18 +76,13 @@
             text-align: center;
             color: #fff;
             border-radius: 0.2rem;
-            background-color: rgb(255, 102, 92);
-            background-image: linear-gradient(
-                to top left,
-                rgba(0, 0, 0, 0.1),
-                rgba(0, 0, 0, 0.2) 30%,
-                rgba(0, 0, 0, 0)
-            );
+            background-color: rgb(233, 117, 109);
+
             box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.1),
                 inset -2px -2px 3px rgba(0, 0, 0, 0.2);
 
             &:hover {
-                background-color: rgb(255, 45, 30);
+                background-color: rgb(230, 69, 57);
             }
             &:active {
                 box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),

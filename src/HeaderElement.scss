@@ -1,8 +1,10 @@
-@import './colors';
+@import "./colors";
 
 .header {
     height: 8rem;
+    min-width: 100%;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     background-color: whitesmoke;
     position: sticky;
@@ -21,15 +23,17 @@
     display: flex;
     flex: 0.9;
     align-items: center;
+    max-width: 50rem;
 
     /* outline: none; */
 
     .header__searchInput {
-        font: 500 1.8rem Raleway;
+        font: 400 1.6rem Inter;
         color: $lessDarkBlue;
         /* font: 400 16px; */
         height: 4rem !important;
         padding-left: 1rem;
+        padding-right: 1rem;
         border-radius: 0.4rem 0 0 0.4rem;
         border: solid 1px $lessDarkBlue;
         width: 100%;

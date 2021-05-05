@@ -4,6 +4,15 @@
     background-color: #fff;
     height: max-content;
 
+    @media (max-width: 600px) {
+        flex-direction: column;
+
+        max-width: 50rem;
+        min-width: 30rem;
+        max-height: 80rem;
+        padding: 0.1rem;
+    }
+
     .checkout__left {
         .checkout__title {
             margin-right: 1rem;

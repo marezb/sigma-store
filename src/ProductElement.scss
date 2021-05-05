@@ -1,4 +1,4 @@
-@import './colors';
+@import "./colors";
 
 .product {
     font-size: 1.3rem;
@@ -17,6 +17,15 @@
     z-index: 1;
     box-shadow: 0.4rem 0.4rem 0.4rem 0.2rem #b3b3b33d;
     border-radius: 0.5rem;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+
+        max-width: 50rem;
+        min-width: 30rem;
+        max-height: 80rem;
+        padding: 0.1rem;
+    }
 
     .product__image {
         max-height: 20rem;

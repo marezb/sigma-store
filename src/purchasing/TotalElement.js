@@ -8,7 +8,7 @@ import { formatPrice } from "../helperFunctions";
 
 function TotalElement() {
     const history = useHistory();
-    const [{ basket }, dispatch] = useStateValue();
+    const [{ basket, user }, dispatch] = useStateValue();
 
     const total = getBasketTotal(basket);
 
@@ -20,7 +20,11 @@ function TotalElement() {
             <p>
                 Suma: <strong>{formatPrice(total)}</strong>
             </p>
-            <button onClick={(e) => history.push("/payment")}>Do kasy</button>
+            {user ? (
+                <button onClick={(e) => history.push("/payment")}>Do kasy</button>
+            ) : (
+                "Aby móc zapłacić - zaloguj się."
+            )}
         </div>
     );
 }
